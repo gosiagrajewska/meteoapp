@@ -14,6 +14,31 @@ function refreshWeather(response) {
   currentTemp.innerHTML = Math.round(response.data.temperature.current);
   let cityElement = document.querySelector("#searched-city");
   cityElement.innerHTML = response.data.city;
+  let weatherDescription = document.querySelector("#weather-description");
+  weatherDescription.innerHTML = response.data.condition.description;
+  let humidity = document.querySelector("#humidity");
+  humidity.innerHTML = response.data.temperature.humidity;
+  let wind = document.querySelector("#wind");
+  wind.innerHTML = Math.round(response.data.wind.speed);
+  let timestamp = document.querySelector("#timestamp");
+  timestamp.innerHTML = formatDate();
+}
+function formatDate() {
+  let now = new Date();
+  let weekDays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let currentWeekday = weekDays[now.getDay()];
+  let currentHours = now.getHours();
+  let currentMinutes = (now.getMinutes() < 10 ? "0" : "") + now.getMinutes();
+
+  return `${currentWeekday}, ${currentHours}:${currentMinutes}`;
 }
 let searchedCity = document.querySelector("#search-form");
 searchedCity.addEventListener("submit", showCity);
