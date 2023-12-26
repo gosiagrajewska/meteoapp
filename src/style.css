@@ -77,8 +77,8 @@ footer {
 }
 .weather-icon-main {
   font-size: 50px;
-  margin-top: 24px;
-  margin-right: 10px;
+  margin-top: 3px;
+  margin-right: 3px;
 }
 .searched-city-temperature {
   font-size: 88px;

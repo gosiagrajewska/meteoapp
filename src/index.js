@@ -20,6 +20,8 @@ function refreshWeather(response) {
   humidity.innerHTML = response.data.temperature.humidity;
   let wind = document.querySelector("#wind");
   wind.innerHTML = Math.round(response.data.wind.speed);
+  let icon = document.querySelector("#icon");
+  icon.innerHTML = `<img src=${response.data.condition.icon_url} class="weather-icon-main">`;
   let timestamp = document.querySelector("#timestamp");
   timestamp.innerHTML = formatDate();
 }
