@@ -91,3 +91,31 @@ footer {
 .searched-city-weather-container {
   display: flex;
 }
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+}
+.weather-forecast-day {
+  margin: 5px;
+}
+.weather-forecast-date {
+}
+.weather-forecast-icon {
+  /*display: block;
+  margin: 0 auto;*/
+}
+.weather-forecast-temperature {
+  font-size: small;
+}
+.weather-forecast-temperature-max {
+  font-weight: normal;
+  padding: 2px;
+}
+.weather-forecast-temperature-min {
+  font-weight: lighter;
+  padding: 2px;
+}
+.forecast-icon {
+  width: 50px;
+}
