@@ -42,6 +42,33 @@ function formatDate() {
 
   return `${currentWeekday}, ${currentHours}:${currentMinutes}`;
 }
+
+function displayForecast() {
+  let forecast = document.querySelector("#forecast");
+  let forecastHTML = "";
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` <div class="weather-forecast-day">
+            <div class="weather-forecast-date">${day}</div>
+            <div class="weather-forecast-icon">
+              <img
+                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+                class="forecast-icon"
+              />
+            </div>
+            <div class="weather-forecast-temperature">
+              <span class="weather-forecast-temperature-max">18°C </span
+              ><span class="weather-forecast-temperature-min">12°C</span>
+            </div>
+          </div>`;
+  });
+
+  forecast.innerHTML = forecastHTML;
+}
+
 let searchedCity = document.querySelector("#search-form");
 searchedCity.addEventListener("submit", showCity);
 searchCity("Warsaw");
+displayForecast();
