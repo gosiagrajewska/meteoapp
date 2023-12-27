@@ -24,6 +24,7 @@ function refreshWeather(response) {
   icon.innerHTML = `<img src=${response.data.condition.icon_url} class="weather-icon-main">`;
   let timestamp = document.querySelector("#timestamp");
   timestamp.innerHTML = formatDate();
+  getForecast(response.data.city);
 }
 function formatDate() {
   let now = new Date();
@@ -43,7 +44,8 @@ function formatDate() {
   return `${currentWeekday}, ${currentHours}:${currentMinutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data);
   let forecast = document.querySelector("#forecast");
   let forecastHTML = "";
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -67,8 +69,13 @@ function displayForecast() {
 
   forecast.innerHTML = forecastHTML;
 }
-
+function getForecast(city) {
+  let apiKey = "b2a5adcct04b33178913oc335f405433";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(displayForecast);
+  console.log(apiUrl);
+}
 let searchedCity = document.querySelector("#search-form");
 searchedCity.addEventListener("submit", showCity);
 searchCity("Warsaw");
-displayForecast();
+getForecast("Warsaw");
